@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/Kr logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Varriable</title>
+</head>
+<body>
+    <h2>Let's Play with CSS Varriable <span class="h1">JS</span></h2>
+    <div class="container">
+        <label for="spacing">Spacing :</label>
+        <input type="range" name="spacing"  min="0" max="200" data-sizing="px" value="20">
+
+        <label for="blur">Blur :</label>
+        <input type="range" name="blur"  min="0" max="25" data-sizing="px" value="1">
+
+        <label for="color">Color :</label>
+        <input type="color" name="color" value="#f7b516" >
+
+    </div>
+    <img src="assets/gettyimages-521190432-2048x2048.jpg" alt="error" height="600px" width="100%">
+    <script>
+        const input = document.querySelectorAll('input');
+        console.log(input);
+        function updateVar(){
+            const suffix = this.dataset.sizing || '';
+            document.documentElement.style.setProperty(`--${this.name}`,this.value+suffix);
+        }
+        input.forEach((elm)=>elm.addEventListener('change',updateVar));
+        input.forEach((resp)=>resp.addEventListener('mousemove',updateVar))
+    </script>
+</body>
+</html>
